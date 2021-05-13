@@ -35,5 +35,6 @@ int main(int argc,char **argv)
 		printf("%c",*D++);
 	}
 	close(fd);
+	munmap(D,FileData.st_size);
 	return 0;
 }
