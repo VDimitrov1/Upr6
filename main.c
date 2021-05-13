@@ -18,7 +18,7 @@ int main(int argc,char **argv)
 		printf("No file specified");
 		exit(1);
 	}
-	printf("Size %s",argv[1]);
+	printf("Size %p",argv[1]);
 	fd=open(argv[1],O_RDWR |O_CREAT,0644);
 	if(fd==-1)
 	{
@@ -29,6 +29,8 @@ int main(int argc,char **argv)
 	D=mmap(NULL,FileData.st_size,MAP_SHARED,PROT_READ,fd,0);
 
 	printf("File Lenght is %ld\n",FileData.st_size);
+	printf("Address is:%s",D);
+	getchar();
 	printf("File Content:\n");
 	for(i=0;i<FileData.st_size;i++)
 	{
